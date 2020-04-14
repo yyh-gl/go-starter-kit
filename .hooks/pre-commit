@@ -1,0 +1,56 @@
+#!/bin/sh
+
+# GolangCI-int による Lint
+echo "   ______  _     _       _    ______"
+echo "  / / / / | |   (_)     | |   \\ \\ \\ \\"
+echo " / / / /  | |    _ _ __ | |_   \\ \\ \\ \\"
+echo "< < < <   | |   | | '_ \\| __|   > > > >"
+echo " \\ \\ \\ \\  | |___| | | | | |_   / / / /"
+echo "  \\_\\_\\_\\ \\_____/_|_| |_|\\__| /_/_/_/"
+echo
+make lint
+lint_result=$?
+
+# Lintチェックに失敗した場合はテストを実行しない
+if [ $lint_result -ne 0 ]; then
+    exit 1
+fi
+
+echo "All OK"
+
+# go test によるテスト
+echo "   ______  _____         _    ______"
+echo "  / / / / |_   _|       | |   \\ \\ \\ \\"
+echo " / / / /    | | ___  ___| |_   \\ \\ \\ \\"
+echo "< < < <     | |/ _ \\/ __| __|   > > > >"
+echo " \\ \\ \\ \\    | |  __/\\__ \\ |_   / / / /"
+echo "  \\_\\_\\_\\   \\_/\\___||___/\\__| /_/_/_/"
+make test
+test_result=$?
+
+# Lintチェックに失敗した場合はテストを実行しない
+if [ $test_result -ne 0 ]; then
+    exit 1
+fi
+
+echo "   ______ ______                  ______"
+echo "  / / / / |  _  \\                 \\ \\ \\ \\"
+echo " / / / /  | | | |___  _ __   ___   \\ \\ \\ \\"
+echo "< < < <   | | | / _ \\| '_ \\ / _ \\   > > > >"
+echo " \\ \\ \\ \\  | |/ / (_) | | | |  __/  / / / /"
+echo "  \\_\\_\\_\\ |___/ \\___/|_| |_|\\___| /_/_/_/"
+
+exit 0
+
+#########################################################################################
+# TODO:
+# 差分のあるファイルに対してのみ Lint チェックしたいのですが、
+# 現状、GolangCI-Lint が個別に3ファイル以上指定した場合、エラーになってしまいます。
+# -> 参考：https://github.com/golangci/golangci-lint/issues/391
+# PRも出されているようなのでバグが直り次第、差分だけを Lint チェックするようにします。
+#########################################################################################
+
+# 差分のあるファイル（*.go）を抽出
+# changed_files=$(git diff --cached --name-only --diff-filter=ACM | grep '.go$')
+# [ -z "$changed_files" ] && exit 0
+# docker-compose exec -T app golangci-lint run --tests --disable-all --enable=goimports --enable=golint --enable=govet --enable=errcheck ${changed_files[@]}
