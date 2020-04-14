@@ -1,0 +1,32 @@
+version: "3.7"
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: build
+    command: ["sh", "-c", "air -d"]
+    volumes:
+      - .:/go/src/pointclub
+    working_dir: /go/src/pointclub
+    ports:
+      - "8080:8080"
+    environment:
+      APP_ENV: local
+      DB_HOST: rdb:3306
+      DB_DATABASE: <enter>
+      DB_USERNAME: root
+      DB_PASSWORD: mysql
+
+  rdb:
+    image: mysql:latest
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=mysql
+      - MYSQL_DATABASE=<enter>
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=password
+    volumes:
+      - ./docker/rdb/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
