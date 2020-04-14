@@ -23,7 +23,7 @@ If you know better one, please tell me :)
 → [Twitter](https://twitter.com/yyh_gl)
 
 
-### Framework
+### ▼ Web Application Framework
 
 **null**
 
@@ -35,13 +35,13 @@ I prefer no framework.
 
 It's simple.
 
-### ORM
+### ▼ ORM
 
 [**xsql**](https://github.com/jmoiron/sqlx)
 
 I just want to write raw SQL and map result to go struct.
 
-### Live reload
+### ▼ Live reload
 
 [**air**](https://github.com/cosmtrek/air)
 
@@ -50,20 +50,20 @@ it's simple and practical.
 Actually I want to use [realize](https://github.com/oxequa/realize),
 but realize repository is unmanaged.
 
-### CI/CD
+### ▼ CI/CD
 
 - **GitHub Actions**
 - **CircleCI**
 
-### Linter
+### ▼ Linter
 
 [**GolangCI-Lint**](https://github.com/golangci/golangci-lint)
 
 GolangCI-Lint realizes centralized management of linter for Go.
 
-### Development Environment
+### ▼ Development Environment
 
-- [**Docker**(https://www.docker.com/)
+- [**Docker**](https://www.docker.com/)
 - [**Docker Compose**](https://docs.docker.com/compose/)
 
 I use conntainer because:
@@ -74,7 +74,7 @@ I use conntainer because:
 
 All third-party tools that use in project are installed in docker image.
 
-### IDE/Editor
+### ▼ IDE/Editor
 
 `.gitignore` has below rules for IDE and editors.
 
