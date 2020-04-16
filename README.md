@@ -4,10 +4,6 @@
 
 ![Go](https://img.shields.io/badge/Go-1.14.2-blue.svg)
 
-TODO:
-- Add GitHub Actions shields
-- Add CircleCI shields
-
 ## What is this?
 
 This is starter kit for development of API server in Go.
@@ -82,3 +78,11 @@ All third-party tools that use in project are installed in docker image.
 - **Emacs**
 - **Vim**
 - **Visual Studio Code**
+
+---
+
+## TODO
+
+- Add GitHub Actions
+- Add CircleCI
+- Add logger
