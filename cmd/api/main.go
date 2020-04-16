@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 	nethttp "net/http"
 
 	"github.com/julienschmidt/httprouter"
@@ -15,5 +16,5 @@ func main() {
 	fmt.Println("========================")
 	fmt.Println("Server Start >> http://localhost:8080")
 	fmt.Println("========================")
-	nethttp.ListenAndServe(":3000", r)
+	log.Fatal(nethttp.ListenAndServe(":3000", r))
 }
