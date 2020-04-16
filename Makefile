@@ -10,7 +10,7 @@ help: ## Show help
 
 .PHONY: init
 init: ## Initialize project
-	cp $(shell pwd)/.scripts/pre-commit $(shell pwd)/.git/hooks/pre-commit
+	cp $(shell pwd)/.hooks/pre-commit $(shell pwd)/.git/hooks/pre-commit
 	chmod +x $(shell pwd)/.git/hooks/pre-commit
 
 .PHONY: build
