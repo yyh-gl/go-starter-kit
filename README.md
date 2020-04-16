@@ -85,4 +85,6 @@ All third-party tools that use in project are installed in docker image.
 
 - Add GitHub Actions
 - Add CircleCI
-- Add logger
+- Add original logger
+  - rotation
+  - structured
